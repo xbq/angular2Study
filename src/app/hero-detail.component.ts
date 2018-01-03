@@ -8,7 +8,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
     selector: 'hero-detail',
     templateUrl: './hero-detail.component.html',
-    styleUrls: ['./heroes.component.css'],
+    styleUrls: ['hero-detail.component.css'],
     providers:[HeroService]
 })
 export class HeroDetailComponent implements OnInit {
@@ -22,6 +22,8 @@ export class HeroDetailComponent implements OnInit {
         this.route.paramMap
             .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
             .subscribe(hero => this.hero = hero);
+            //route是被被激活的路有对象
+            //
     }
 
     goBack(): void {
