@@ -1,0 +1,17 @@
+<div>
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+    <fieldset ngModelGroup="login">
+      用户名：
+      <input type="text" [(ngModel)]="userName" placeholder="用户名" #userNameRef="ngModel" name="userName" required minlength=3
+        ng-reflect-minlength="3" ng-reflect-name="username"> 
+      <span *ngIf="userNameRef.errors?.required">this is required</span>
+      <span *ngIf="userNameRef.errors?.minlength">shuold be at least 3 charactors</span>
+      <br> 密&nbsp;&nbsp;&nbsp;&nbsp;码：
+      <input type="password" [(ngModel)]="password" placeholder="密码" #passwordRef="ngModel" name="password" required minlength=6>
+      <span *ngIf="passwordRef.errors?.required">this is required</span>
+      <span *ngIf="passwordRef.errors?.minlength">shuold be at least 3 charactors</span>
+      <br>
+    </fieldset>
+    <button type="submit">Login</button>
+  </form>
+</div>
